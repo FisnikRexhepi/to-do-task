@@ -1,0 +1,22 @@
+@import 'src/scss/_vars';
+
+.panel-heading
+{
+	background-color: $primary-color;
+}
+
+.container{
+	margin-top:50px;
+}
+
+.panel-footer{
+	background-color:$white-color;
+	border-color: $white-color;
+}
+
+
+.btn-default{
+	background-color:$cancel-button-color;
+	color: $white-color;
+	margin-top: 10px;
+}

@@ -1,0 +1,39 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <div class="container col-xs-12">  
+
+    <!-- Div that holds add new card, and other created cards -->
+    <div class="col-md-12">
+      <div class="row">
+        <div *ngFor="let task of tasks" class="todo-card-colums col-md-3">
+          <div class="div-inside-todo-card">
+            <div class="element-container-inside-to-do-card">
+              <label class="label-task-name">{{task.taskName}}</label>
+            </div>
+            <div class="element-container-inside-to-do-card">
+              <label>{{task.userName}}</label>
+            </div>
+            <div class="element-container-inside-to-do-card">
+              <label>{{task.taskDetails}}</label>
+            </div>
+            <div class="element-container-inside-to-do-card"> 
+              <input [(ngModel)]="task.isCompleted" type="checkbox" (change) = "changeCompleted($event.target.checked)"><label>Completed</label> 
+            </div>
+          </div>
+        </div>
+
+        <!-- Add new task -->
+            <div routerLink="/tasks/add" class="todo-card-colums  col-md-3">
+              <div class="add-new-task-card">Add Task</div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<body>
+	<form (ngSubmit)="saveToDoTask()" #taskForm="ngForm">
+		<div class="container col-md-4 col-md-offset-4 ">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Add New Task Form</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group" 
+					    [class.has-error]="taskNameControl.invalid && taskNameControl.touched"
+					    [class.has-success]="taskNameControl.valid">
+						<label for="taskName" class="control-label">Task Name</label>
+						<input id="taskName" name="taskName" required [(ngModel)]="toDoTask.taskName" placeholder="Enter task name..." type="text"
+						 class="form-control" #taskNameControl="ngModel">
+						<span class="help-block" *ngIf="taskNameControl.invalid && taskNameControl.touched">Task Name is required</span>
+					</div>
+
+					<div class="form-group"
+					    [class.has-error]="userNameControl.invalid && userNameControl.touched"
+					    [class.has-success]="userNameControl.valid">
+						<label for="userName" class="control-label">Username</label>
+						<input id="userName" name="userName" required [(ngModel)]="toDoTask.userName" placeholder="Enter username..." type="text" 
+						 class="form-control" #userNameControl ="ngModel">
+						<span class="help-block" *ngIf="userNameControl.invalid && userNameControl.touched">Username is required</span>
+					</div>
+
+					<div class="form-group"
+					    [class.has-error]="taskDetails.invalid && taskDetails.touched"
+					    [class.has-success]="taskDetails.valid">
+						<label class="control-label" for="taskDetails">Task Details</label>
+						<textarea id="taskDetails" name="taskDetails" required minlength="30" [(ngModel)]="toDoTask.taskDetails" rows="3" placeholder="Enter task details..." type="text"
+						 class="form-control"  #taskDetails ="ngModel"></textarea>
+						 <span class="help-block" *ngIf="taskDetails.errors?.required && taskDetails.touched">Task details are required</span>
+						 <span class="help-block" *ngIf="taskDetails.errors?.minlength && taskDetails.touched">Task details must include at least 30 characters </span>
+						</div>
+
+					<div class="form-group">
+						<label class="checkbox-inline" for="isCompleted">
+							<input id="isCompleted" name="isCompleted" value="false" [(ngModel)]="toDoTask.isCompleted" type="checkbox">Completed
+						</label>
+					</div>
+
+					<div class="form-group">
+						<button  type="submit" [disabled]="taskForm.invalid" class="btn btn-success col-xs-12">Save</button>
+						<button routerLink="/tasks" class="btn btn-default col-xs-12">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>

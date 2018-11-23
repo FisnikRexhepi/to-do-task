@@ -1,0 +1,28 @@
+@import 'src/scss/_vars';
+
+.navbar{
+    border: none;
+    background-color:$primary-color;
+    min-height: 80px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+
+    h3{
+        font-weight: bold;
+        font-size: 700;
+    }
+}
+
+.text-completed-tasks{
+    color: $font-color;
+    padding-right: 25px;
+    font-size: medium;
+    font-weight: 600;
+    font-family:Arial, Helvetica, sans-serif
+    }
+
+  .text-total-tasks{
+    @extend .text-completed-tasks;
+    padding-right:0px;
+  }
