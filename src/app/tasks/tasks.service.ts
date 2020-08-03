@@ -15,7 +15,7 @@ export class TasksService {
 
     private listTasks: Task[] = [
 
-    ]
+    ];
 
     saveTask(task: Task) {
         this.listTasks.push(task);
